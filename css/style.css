@@ -50,6 +50,6 @@ body{
 }
 @font-face{
     font-family: ramona-bold;
-    src: url('/fonts/ramona-bold.woff2') format('woff2'),
-         url('/fonts/ramona-bold.woff') format('woff');
+    src: url('../fonts/ramona-bold.woff2') format('woff2'),
+         url('../fonts/ramona-bold.woff') format('woff');
 }
