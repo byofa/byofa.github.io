@@ -41,7 +41,7 @@ var addFace = function() {
     var boxFace = Bodies.fromVertices(w / 2, h / 2, face, {
         render: {
             sprite: {
-                texture: '../img/photo.png',
+                texture: '/img/photo.png',
                 xOffset: -0.03,
                 yOffset: -0.03,
                 xScale: 1.1,
