@@ -1,3 +1,4 @@
+/******** All warnings for decomp.js have been disabled (line 4689) *******/
 /*!
  * matter-js 0.17.0 by @liabru
  * http://brm.io/matter-js/
@@ -4685,13 +4686,13 @@ var Vector = __webpack_require__(2);
             vertices = vertexSets[v];
             isConvex = Vertices.isConvex(vertices);
             isConcave = !isConvex;
-
+            /* All warnings for decomp.js have been disabled
             if (isConcave && !canDecomp) {
                 Common.warnOnce(
                     'Bodies.fromVertices: Install the \'poly-decomp\' library and use Common.setDecomp or provide \'decomp\' as a global to decompose concave vertices.'
                 );
             }
-
+            */
             if (isConvex || !canDecomp) {
                 if (isConvex) {
                     vertices = Vertices.clockwiseSort(vertices);
