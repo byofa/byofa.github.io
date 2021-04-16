@@ -24,7 +24,7 @@ var render = Render.create({
     canvas: test,
     engine: engine,
     options: {
-        wireframes: false,
+        // wireframes: false,
         background: 'transparent',
         wireframeBackground: 'transparent',
         width: w,
@@ -58,6 +58,22 @@ var addFace = function() {
     Body.scale(boxFace, scaly, scaly);
     Composite.add(engine.world, boxFace);
 };
+
+// create body why me
+var elementWhyMe = document.getElementById("whyme");
+var wmWidth = elementWhyMe.offsetWidth;
+var wmHeight = elementWhyMe.offsetHeight;
+var clientWhyMe = elementWhyMe.getBoundingClientRect();
+var yWhyMe = clientWhyMe.y;
+var xWhyMe = clientWhyMe.x;
+console.log("w: "+wmWidth+"h: "+wmHeight+"y: "+yWhyMe+"x: "+xWhyMe)
+var whyMe = Bodies.rectangle(x, y, wmWidth, wmHeight, {
+    isStatic: true,
+    render: {
+        fillStyle: 'transparent'
+    }
+});
+
 // create walls
 var wallA = Bodies.rectangle(w + 50, h / 2, 100, h, {
     isStatic: true,
