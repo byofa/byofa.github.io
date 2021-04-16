@@ -66,12 +66,10 @@ var wmHeight = elementWhyMe.offsetHeight;
 var clientWhyMe = elementWhyMe.getBoundingClientRect();
 var yWhyMe = clientWhyMe.y;
 var xWhyMe = clientWhyMe.x;
-console.log("w: "+wmWidth+"h: "+wmHeight+"y: "+yWhyMe+"x: "+xWhyMe)
-var whyMe = Bodies.rectangle(x, y, wmWidth, wmHeight, {
-    isStatic: true,
-    render: {
-        fillStyle: 'transparent'
-    }
+var whyMeWidth = (w/2)/(1920/2);
+console.log("w: "+whyMeWidth+"\n"+"h: "+wmHeight+"\n"+"y: "+yWhyMe+"\n"+"x: "+xWhyMe);
+var whyMe = Bodies.rectangle(whyMeWidth, yWhyMe+(wmHeight/2), wmWidth, wmHeight, {
+    isStatic: true
 });
 
 // create walls
@@ -116,7 +114,7 @@ Render.lookAt(render, {
     max: { x: w, y: h }
 });
 // add all of the bodies and mouse to the world
-Composite.add(engine.world, [ground, wallA, wallB, mouseConstraint]);
+Composite.add(engine.world, [ground, wallA, wallB, mouseConstraint, whyMe]);
 
 // run the engine
 Runner.run(engine);
