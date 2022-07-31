@@ -1,3 +1,10 @@
+const resizeOps = () => {
+    document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+};
+
+resizeOps();
+window.addEventListener("resize", resizeOps);
+
 // module aliases
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -15,9 +22,8 @@ Common = Matter.Common;
 var engine = Engine.create();
 
 // get values of canvas responsive
-var siz = document.getElementById("faces");
-var w = siz.offsetWidth;
-var h = siz.offsetHeight;
+var w = window.innerWidth;
+var h = window.innerHeight;
 
 // create a renderer and setup
 var render = Render.create({
@@ -29,7 +35,7 @@ var render = Render.create({
         wireframeBackground: 'transparent',
         width: w,
         height: h,
-        // showBounds: true,
+        showBounds: true,
         render: {
             setPixelRatio: 'auto'
         }
@@ -42,7 +48,7 @@ var face = Vertices.fromPath("54.8 8.4 56.5 8.2 58.5 8.5 60.2 8.7 69 9.2 76.4 13
 // create bodies
 var scalY = w / 1920 < 0.5 ? 0.5 : w / 1920;
 var scalF = (w * 1.1) / 1920 < 0.55 ? 0.55 : (w * 1.1) / 1920;
-console.log(scalY);
+
 var addFace = function () {
     var boxFace = Bodies.fromVertices(Common.random(0, w), 0, face, {
         render: {
