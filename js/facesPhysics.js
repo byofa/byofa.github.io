@@ -41,7 +41,7 @@ var face = Vertices.fromPath("54.8 8.4 56.5 8.2 58.5 8.5 60.2 8.7 69 9.2 76.4 13
 
 // create bodies
 var scalY = w / 1920 < 0.5 ? 0.5 : w / 1920;
-var scalF = (w * 1.1) / 1920 < 0.6 ? 0.6 : (w * 1.1) / 1920;
+var scalF = (w * 1.1) / 1920 < 0.55 ? 0.55 : (w * 1.1) / 1920;
 console.log(scalY);
 var addFace = function () {
     var boxFace = Bodies.fromVertices(Common.random(0, w), 0, face, {
