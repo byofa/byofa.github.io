@@ -7,7 +7,7 @@ body{
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #3D3D3D;
+    background-color: #ffffffff;
 }
 @font-face{
     font-family: ramona-bold;
