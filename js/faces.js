@@ -1,4 +1,4 @@
-export function faces () {
+export function faces() {
 
     const resizeOps = () => {
         document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
@@ -73,20 +73,52 @@ export function faces () {
         render: {
             fillStyle: 'transparent'
         }
-    }),
+    });
+    var wallB = Bodies.rectangle(-50, h / 2, 100, h, {
+        isStatic: true,
+        render: {
+            fillStyle: 'transparent'
+        }
+    });
+    var ground = Bodies.rectangle(w / 2, h + 50, w, 100, {
+        isStatic: true,
+        render: {
+            fillStyle: 'transparent'
+        }
+    });
+
+    var wallChange = function () {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        render.options.width = w;
+        render.options.height = h;
+        render.canvas.width = w;
+        render.canvas.height = h;
+        Render.lookAt(render, {
+            min: { x: 0, y: 0 },
+            max: { x: w, y: h }
+        });
+        Composite.remove(engine.world, [wallA, wallB, ground]);
+        wallA = Bodies.rectangle(w + 50, h / 2, 100, h, {
+            isStatic: true,
+            render: {
+                fillStyle: 'transparent'
+            }
+        });
         wallB = Bodies.rectangle(-50, h / 2, 100, h, {
             isStatic: true,
             render: {
                 fillStyle: 'transparent'
             }
-        }),
+        });
         ground = Bodies.rectangle(w / 2, h + 50, w, 100, {
             isStatic: true,
             render: {
                 fillStyle: 'transparent'
             }
         });
-
+        Composite.add(engine.world, [wallA, wallB, ground]);
+    }
     // create mouse and option
     var mouse = Mouse.create(render.canvas),
         mouseConstraint = MouseConstraint.create(engine, {
@@ -102,6 +134,7 @@ export function faces () {
     render.mouse = mouse;
     // create events
     Events.on(mouseConstraint, "mousedown", addFace);
+    window.onresize = wallChange;
 
     // fit the render viewport to the scene
     Render.lookAt(render, {
@@ -116,4 +149,5 @@ export function faces () {
 
     // run the renderer
     Render.run(render);
+
 };

@@ -2,11 +2,10 @@ export function begin () {
     let time;
     let faces = document.getElementById("faces");
     window.onload = start;
-    document.onmousedown = cancel;
-    document.ontouchstart = cancel;
+    window.onmousedown = cancel;
+    window.ontouchstart = cancel;
 
     function start() {
-        console.log("click")
         faces.classList.add("begin");
         faces.insertAdjacentHTML("afterbegin", '<span id="tmp"><img src="../img/click.gif"> <br/> Click on the screen</span>');
     }
