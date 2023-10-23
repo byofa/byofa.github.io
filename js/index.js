@@ -1,5 +1,5 @@
-import { instruction } from "./instruction.js";
+import { begin } from "./begin.js";
 import { faces } from "./faces.js";
 
 faces();
-instruction();
+begin();
