@@ -88,8 +88,8 @@ export function faces() {
     });
 
     var wallChange = function () {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
+        w = window.innerWidth;
+        h = window.innerHeight;
         render.options.width = w;
         render.options.height = h;
         render.canvas.width = w;
