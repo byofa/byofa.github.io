@@ -150,4 +150,10 @@ export function faces() {
     // run the renderer
     Render.run(render);
 
+    // remove faces
+    document.getElementById('trash').addEventListener('click', () => {
+        Composite.remove(engine.world, engine.world.bodies);
+        Composite.add(engine.world, [ground, wallA, wallB]);
+    });
+
 };

@@ -19,9 +19,10 @@ body{
 
 .header {
     position: absolute;
-    top: 0;
     right: 10px;
     filter: brightness(0) saturate(100%) hue-rotate(0deg) invert(1);
+    z-index: 100;
+    cursor: pointer;
 }
 
 .faces {
@@ -33,6 +34,7 @@ body{
 }
 
 .begin{
+    z-index: 101;
     cursor: pointer;
     background-color: rgba(0,0,0,.5);
 }
@@ -55,14 +57,31 @@ body{
     position: absolute;
 }
 
-.overlay {
-    background-color: rgba(0,0,0,.5);
+.modal {
+    /* modals are hidden by default */
+    /* modal container fixed across whole screen */
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 9999;
-    -webkit-animation: show .1s forwards;
-    animation: show .1s forwards
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .5);
+    color: black;
+    padding-top: 10%;
+    padding-inline: 25%;
+}
+
+.modal-open {
+    display: block;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 150%;
+    margin-left: 95%;
+    color: rgba(0, 0, 0, .6);
+}
+
+.modal-content {
+    padding: 5%;
+    background: #fff;
 }
