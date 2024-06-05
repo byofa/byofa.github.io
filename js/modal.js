@@ -15,7 +15,7 @@ export function modal() {
         else if (prop === 'settings') {
             modalContent.querySelector('h1').innerText = settingsModel.title;
             modalContent.querySelector('p').innerText = settingsModel.content;
-            modalContent.insertAdjacentHTML('beforeend', '<div id="tmp"><label for="color">Background Color:</label><br><br><input type="color" id="color" value="' + color + '"><br><br><p>OR</p><label for="file">Background Image:</label><br><br><input type="file" id="file" name="background" accept="image/png, image/jpeg"></div>');
+            modalContent.insertAdjacentHTML('beforeend', '<div id="tmp-settings"><label for="color">Background Color:</label><br><br><input type="color" id="color" value="' + color + '"><br><br><p>OR</p><label for="file">Background Image:</label><br><br><input type="file" id="file" name="background" accept="image/png, image/jpeg"></div>');
 
             document.getElementById('color').addEventListener('input', (e) => {
                 document.body.style.backgroundColor = e.target.value;
@@ -34,7 +34,7 @@ export function modal() {
 
     function closeModal() {
         document.getElementById('modal').classList.remove('modal-open');
-        document.getElementById('tmp') ? document.getElementById('tmp').remove() : null;
+        document.getElementById('tmp-settings') ? document.getElementById('tmp-settings').remove() : null;
     }
 
     document.getElementById('help').addEventListener('click', () => openModal('help'));
