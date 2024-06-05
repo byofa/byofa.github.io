@@ -23,6 +23,7 @@ body{
     filter: brightness(0) saturate(100%) hue-rotate(0deg) invert(1);
     z-index: 100;
     cursor: pointer;
+    filter: invert(100%) sepia(20%) saturate(3692%) hue-rotate(299deg) brightness(108%) contrast(95%);
 }
 
 .faces {
@@ -41,7 +42,7 @@ body{
 
 .begin span{
     position: absolute;
-    color: white;
+    color: #f3f1d6;
     top:  50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -58,8 +59,6 @@ body{
 }
 
 .modal {
-    /* modals are hidden by default */
-    /* modal container fixed across whole screen */
     display: none;
     position: fixed;
     inset: 0;
@@ -84,10 +83,22 @@ body{
 
 .modal-content {
     padding: 5%;
-    background: #fff;
+    background: #f3f1d6;
     text-align: center;
+    border-radius: 5%;
+}
+
+.modal-content p {
+    line-height: 1.5;
 }
 
 .modal-content label {
     font-size: small;
+}
+
+@media only screen and (max-width: 600px) {
+    .modal {
+       padding-top: 50%;
+       padding-inline: 10%;
+    }
 }
