@@ -26,6 +26,7 @@ export function modal() {
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     document.body.style.backgroundImage = 'url(' + e.target.result + ')';
+                    document.body.style.backgroundSize = 'cover';
                 };
                 reader.readAsDataURL(e.target.files[0]);
             });
