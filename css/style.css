@@ -68,6 +68,7 @@ body{
     color: black;
     padding-top: 10%;
     padding-inline: 25%;
+    overflow: auto;
 }
 
 .modal-open {
