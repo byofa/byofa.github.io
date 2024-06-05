@@ -84,4 +84,9 @@ body{
 .modal-content {
     padding: 5%;
     background: #fff;
+    text-align: center;
+}
+
+.modal-content label {
+    font-size: small;
 }

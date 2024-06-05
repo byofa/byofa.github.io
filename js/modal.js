@@ -9,16 +9,34 @@ export function modal() {
         var modalContent = document.getElementById('modal-content');
         document.getElementById('modal').classList.add('modal-open');
         if (modal === 'help') {
-            modalContent.querySelector('h2').innerText = helpModel.title;
+            modalContent.querySelector('h1').innerText = helpModel.title;
             modalContent.querySelector('p').innerText = helpModel.content;
         }
         else if (modal === 'settings') {
-            modalContent.querySelector('h2').innerText = settingsModel.title;
+            modalContent.querySelector('h1').innerText = settingsModel.title;
             modalContent.querySelector('p').innerText = settingsModel.content;
-            modalContent.insertAdjacentHTML('beforeend', '<input type="color" id="color" value="'+color+'">');
-            document.getElementById('color').addEventListener('change', (e) => {
+            modalContent.insertAdjacentHTML('beforeend', '<label for="color">Background Color:</label>');
+            modalContent.insertAdjacentHTML('beforeend', '<br>');
+            modalContent.insertAdjacentHTML('beforeend', '<br>');
+            modalContent.insertAdjacentHTML('beforeend', '<input type="color" id="color" value="' + color + '">');
+            modalContent.insertAdjacentHTML('beforeend', '<br>');
+            modalContent.insertAdjacentHTML('beforeend', '<p>OR</p>');
+            modalContent.insertAdjacentHTML('beforeend', '<label for="file">Background Image:</label>');
+            modalContent.insertAdjacentHTML('beforeend', '<br>');
+            modalContent.insertAdjacentHTML('beforeend', '<br>');
+            modalContent.insertAdjacentHTML('beforeend', '<input type="file" id="file" name="background" accept="image/png, image/jpeg">');
+
+            document.getElementById('color').addEventListener('input', (e) => {
                 document.body.style.backgroundColor = e.target.value;
                 color = e.target.value;
+            });
+
+            document.getElementById('file').addEventListener('change', (e) => {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.body.style.backgroundImage = 'url(' + e.target.result + ')';
+                };
+                reader.readAsDataURL(e.target.files[0]);
             });
         }
     }
