@@ -13,7 +13,7 @@ body{
     padding: 0;
     width: 100vw;
     height: calc(var(--vh, 1vh) * 100);
-    background-color: #3D3D3D;
+    background-color: #161F3C;
     font-family: ramona-bold;
 }
 

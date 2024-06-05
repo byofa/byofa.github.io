@@ -2,7 +2,7 @@ import { helpModel } from './models/helpModel.js';
 import { settingsModel } from './models/settingsModel.js';
 
 export function modal() {
-    var modal;
+    var color = '#161F3C';
     function openModal(prop) {
         modal = prop;
         console.log(modal);
@@ -15,9 +15,10 @@ export function modal() {
         else if (modal === 'settings') {
             modalContent.querySelector('h2').innerText = settingsModel.title;
             modalContent.querySelector('p').innerText = settingsModel.content;
-            modalContent.insertAdjacentHTML('beforeend', '<input type="color" id="color" value="#3D3D3D">');
+            modalContent.insertAdjacentHTML('beforeend', '<input type="color" id="color" value="'+color+'">');
             document.getElementById('color').addEventListener('change', (e) => {
                 document.body.style.backgroundColor = e.target.value;
+                color = e.target.value;
             });
         }
     }
